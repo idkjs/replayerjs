@@ -3,26 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@rescript/react": "^0.10.3",
+    "reason-react": "^0.9.1",
+    "@smartcuts/reason-antd": "https://github.com/smartcuts/reason-antd.git",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "antd": "^4.19.3",
     "bs-css-emotion": "^4.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
     "rescript-classnames": "^6.0.0",
     "rrweb": "^1.1.2",
-    "rrweb-player": "^0.7.13",
     "rrweb-snapshot": "^1.1.13",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "watch": "rescript build -w",
-    "test": "bsb -clean-world;rescript build",
+    "watch": "bsb -make-world -w",
+    "test": "bsb -clean-world;bsb -make-world",
     "build": "rescript build --with-deps",
-    "clean": "rescript clean"
+    "clean": "bsb -clean-world",
+    "fmt": "find . -name *.re -or -name *.rei | grep -v node_modules | xargs refmt --in-place"
+
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +46,6 @@
     ]
   },
   "devDependencies": {
-    "rescript": "^9.1.4"
+    "bs-platform": "^9.0.2"
   }
 }

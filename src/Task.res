@@ -6,6 +6,10 @@ module Styles = {
     alignItems(#center),
     justifyContent(#center),
     margin2(~v=#zero, ~h=#auto),
+    fontSize(px(10)),
+    border(1->px, solid, #var("--grey-9-rgb")),
+    marginTop(px(10)),
+    height(px(30)),
   })
   //        fontSize(`10px);
   //   border: 1px solid rgb(var(--grey-9-rgb));
@@ -27,7 +31,7 @@ type replayerOptions
 type replayer = {play: unit => unit}
 @obj external replayerOptions: (~events: 'a, unit) => replayerOptions = ""
 
-@module("rrweb")
+@module("rrweb") 
 external replayer: replayerOptions => replayer = "Replayer"
 type rrweb<'a> = {
   // emit: 'a => unit,
